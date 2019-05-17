@@ -115,7 +115,7 @@ toTableRow body =
         [ td [ style "border" "solid thin" ] [ text body.foo ]
         , td [ style "border" "solid thin" ] [ text <| String.fromInt body.bar ]
         , td [ style "border" "solid thin" ] [ text <| Maybe.withDefault "" body.maybeFoo ]
-        , td [ style "border" "solid thin" ] [ text <| String.fromInt (Maybe.withDefault 0 body.maybeBar) ]
+        , td [ style "border" "solid thin" ] [ text <| Maybe.withDefault "" body.maybeBar ]
         ]
 
 
@@ -127,7 +127,7 @@ type alias PostBody =
     { foo : String
     , bar : Int
     , maybeFoo : Maybe String
-    , maybeBar : Maybe Int
+    , maybeBar : Maybe String
     }
 
 
@@ -150,7 +150,7 @@ bodyDecoder =
         (field "foo" string)
         (field "bar" int)
         (maybe (field "maybeFoo" string))
-        (maybe (field "maybeBar" int))
+        (maybe (field "maybeBar" string))
 
 
 dbRecordToPostBody : String -> PostBody -> PostBody

@@ -151,8 +151,3 @@ bodyDecoder =
         (field "bar" int)
         (maybe (field "maybeFoo" string))
         (maybe (field "maybeBar" string))
-
-
-dbRecordToPostBody : String -> PostBody -> PostBody
-dbRecordToPostBody _ body =
-    body

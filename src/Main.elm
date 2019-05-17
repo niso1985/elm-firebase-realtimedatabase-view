@@ -141,7 +141,7 @@ getPostBody =
 
 postBodyDecoder : Decoder (Dict.Dict String PostBody)
 postBodyDecoder =
-    Json.Decode.map (Dict.map dbRecordToPostBody) (dict bodyDecoder)
+    dict bodyDecoder
 
 
 bodyDecoder : Decoder PostBody
